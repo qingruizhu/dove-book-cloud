@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modules>
+        <module>dove-common-util</module>
+        <module>dove-common-base</module>
+        <module>dove-common-swagger</module>
+    </modules>
+
+    <parent>
+        <groupId>com.dove.book</groupId>
+        <artifactId>dove-book-cloud</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dove.common</groupId>
+    <artifactId>dove-common</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>dove-common</name>
+    <packaging>pom</packaging>
+    <description>common for 飞鸽</description>
+
+    <dependencies>
+    </dependencies>
+
+</project>

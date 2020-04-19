@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dove.book.bgd.mapper.BookRentMapper">
+  <resultMap id="BaseResultMap" type="com.dove.book.bgd.model.BookRent">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="book_id" jdbcType="BIGINT" property="bookId" />
+    <result column="rent_user_id" jdbcType="BIGINT" property="rentUserId" />
+    <result column="rent_price" jdbcType="DECIMAL" property="rentPrice" />
+    <result column="rent_user_address" jdbcType="VARCHAR" property="rentUserAddress" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="rent_desc" jdbcType="VARCHAR" property="rentDesc" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    id, book_id, rent_user_id, rent_price, rent_user_address, status, rent_desc
+  </sql>
+  <select id="selectByExample" parameterType="com.dove.book.bgd.model.BookRentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from book_rent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from book_rent
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from book_rent
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.dove.book.bgd.model.BookRentExample">
+    delete from book_rent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dove.book.bgd.model.BookRent">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into book_rent (book_id, rent_user_id, rent_price, 
+      rent_user_address, status, rent_desc
+      )
+    values (#{bookId,jdbcType=BIGINT}, #{rentUserId,jdbcType=BIGINT}, #{rentPrice,jdbcType=DECIMAL}, 
+      #{rentUserAddress,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{rentDesc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.dove.book.bgd.model.BookRent">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into book_rent
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="bookId != null">
+        book_id,
+      </if>
+      <if test="rentUserId != null">
+        rent_user_id,
+      </if>
+      <if test="rentPrice != null">
+        rent_price,
+      </if>
+      <if test="rentUserAddress != null">
+        rent_user_address,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="rentDesc != null">
+        rent_desc,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="bookId != null">
+        #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="rentUserId != null">
+        #{rentUserId,jdbcType=BIGINT},
+      </if>
+      <if test="rentPrice != null">
+        #{rentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rentUserAddress != null">
+        #{rentUserAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="rentDesc != null">
+        #{rentDesc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dove.book.bgd.model.BookRentExample" resultType="java.lang.Long">
+    select count(*) from book_rent
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update book_rent
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=BIGINT},
+      </if>
+      <if test="record.bookId != null">
+        book_id = #{record.bookId,jdbcType=BIGINT},
+      </if>
+      <if test="record.rentUserId != null">
+        rent_user_id = #{record.rentUserId,jdbcType=BIGINT},
+      </if>
+      <if test="record.rentPrice != null">
+        rent_price = #{record.rentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="record.rentUserAddress != null">
+        rent_user_address = #{record.rentUserAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null">
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.rentDesc != null">
+        rent_desc = #{record.rentDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update book_rent
+    set id = #{record.id,jdbcType=BIGINT},
+      book_id = #{record.bookId,jdbcType=BIGINT},
+      rent_user_id = #{record.rentUserId,jdbcType=BIGINT},
+      rent_price = #{record.rentPrice,jdbcType=DECIMAL},
+      rent_user_address = #{record.rentUserAddress,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      rent_desc = #{record.rentDesc,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dove.book.bgd.model.BookRent">
+    update book_rent
+    <set>
+      <if test="bookId != null">
+        book_id = #{bookId,jdbcType=BIGINT},
+      </if>
+      <if test="rentUserId != null">
+        rent_user_id = #{rentUserId,jdbcType=BIGINT},
+      </if>
+      <if test="rentPrice != null">
+        rent_price = #{rentPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="rentUserAddress != null">
+        rent_user_address = #{rentUserAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="rentDesc != null">
+        rent_desc = #{rentDesc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dove.book.bgd.model.BookRent">
+    update book_rent
+    set book_id = #{bookId,jdbcType=BIGINT},
+      rent_user_id = #{rentUserId,jdbcType=BIGINT},
+      rent_price = #{rentPrice,jdbcType=DECIMAL},
+      rent_user_address = #{rentUserAddress,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      rent_desc = #{rentDesc,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
