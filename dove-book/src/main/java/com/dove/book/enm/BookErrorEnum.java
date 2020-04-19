@@ -10,9 +10,11 @@ import com.dove.common.base.enm.IBaseEum;
  */
 public enum BookErrorEnum implements IBaseEum {
 
-    AUTHORITY_ERROR(1000, "权限不清"),
-    AUTHORITY_INFO_ERROR_UPDATE(1001, "权限信息错误"),
-    AUTHORITY_ACCOUNT_ERROR_BALANCE(1301, "权限数量错误"),
+    BOOK_ERROR(2000, "操作【book】异常"),
+    BOOK_ERROR_CREATE(2001, "创建【book】失败"),
+    BOOK_ERROR_UPDATE(2001, "修改【book】失败"),
+    BOOK_ERROR_DEL(2001, "删除【book】失败"),
+
 
     ;
 

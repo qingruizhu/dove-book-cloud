@@ -13,7 +13,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.dove.common</groupId>
+    <groupId>com.dove</groupId>
     <artifactId>dove-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>dove-common</name>
