@@ -23,7 +23,7 @@ import java.util.List;
  * @Author qingruizhu
  * @Date 9:33 下午 2020/4/19
  **/
-@Api(description = "ing", tags = "书籍")
+@Api(description = "ing", tags = "☻ 书籍")
 @CommonResultAnnon
 @RestController
 @RequestMapping("/book")
@@ -37,9 +37,10 @@ public class BookController {
     @RequestMapping(value = "/list", method = RequestMethod.POST)
     public CommonPage<Book> list(
             @RequestBody BookDto bookDto) {
-        PageHelper.startPage(bookDto.getPageNum(), bookDto.getPageSize());
-        List<Book> books = service.listQ(bookDto);
-        return CommonPage.restPage(books);
+//        PageHelper.startPage(bookDto.getPageNum(), bookDto.getPageSize());
+//        List<Book> books = service.listQ(bookDto);
+//        return CommonPage.restPage(books);
+        return null;
     }
 
     @ApiOperation("所有【书籍列表】")

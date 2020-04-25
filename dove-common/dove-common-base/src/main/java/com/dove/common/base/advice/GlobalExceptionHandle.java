@@ -4,6 +4,8 @@ package com.dove.common.base.advice;
 import com.dove.common.base.enm.SysErrorEnum;
 import com.dove.common.base.exception.BusinessException;
 import com.dove.common.base.vo.CommonResult;
+import com.dove.common.util.holder.ThreadLocalKey;
+import com.dove.common.util.holder.ThreadLocalMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.validation.FieldError;
@@ -18,19 +20,31 @@ import javax.validation.ConstraintViolationException;
 import java.util.Arrays;
 import java.util.List;
 
+
 //@RestControllerAdvice(annotations = RestController.class)
 public class GlobalExceptionHandle {
     protected Logger logger = LoggerFactory.getLogger(GlobalExceptionHandle.class);
 
+    public String snmAppendErrorMsg(String errorMsg) {
+        StringBuilder sb = new StringBuilder();
+        Object snm = ThreadLocalMap.get(ThreadLocalKey.SERIAL_NUMBER.name());
+        if (null != snm) {
+            sb.append(snm.toString());
+            sb.append(":");
+        }
+        sb.append(errorMsg);
+        return sb.toString();
+    }
+
     @ExceptionHandler(Exception.class)
     public CommonResult handle(Exception e) {
-        logger.error(SysErrorEnum.SYSTEM_ERROR.getMessage(), e);
+        logger.error(snmAppendErrorMsg(SysErrorEnum.SYSTEM_ERROR.getMessage()), e);
         return CommonResult.failed();
     }
 
     @ExceptionHandler(BusinessException.class)
     public CommonResult handle(BusinessException e) {
-        logger.error("---------【基础业务】失败------>>>{}", e.getMessage());
+        logger.error(snmAppendErrorMsg("【基础业务】失败--->>>{}"), e.getMessage());
         return CommonResult.failed(e.getCode(), e.getMessage());
     }
 

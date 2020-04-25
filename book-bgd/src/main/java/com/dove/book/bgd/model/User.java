@@ -2,8 +2,11 @@ package com.dove.book.bgd.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
+import java.util.Set;
 
 public class User implements Serializable {
+    private Set<Role> roles;
+
     private Long id;
 
     @ApiModelProperty(value = "账号")
@@ -91,6 +94,14 @@ public class User implements Serializable {
 
     public void setStar(Long star) {
         this.star = star;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 
     @Override

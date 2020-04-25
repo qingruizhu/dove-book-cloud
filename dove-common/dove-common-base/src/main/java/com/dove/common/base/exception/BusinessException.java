@@ -1,6 +1,5 @@
 package com.dove.common.base.exception;
 
-
 import com.dove.common.base.enm.IBaseEum;
 
 /**

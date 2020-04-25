@@ -22,11 +22,6 @@
     <dependencies>
         <dependency>
             <groupId>com.dove.common</groupId>
-            <artifactId>dove-common-util</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dove.common</groupId>
             <artifactId>dove-common-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

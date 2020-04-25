@@ -1,7 +1,10 @@
 package com.dove.common.base.vo;
 
 
+import com.dove.common.base.enm.IBaseEum;
 import com.dove.common.base.enm.SysErrorEnum;
+import com.dove.common.util.holder.ThreadLocalKey;
+import com.dove.common.util.holder.ThreadLocalMap;
 
 /**
  * @Description: 封装结果集
@@ -31,8 +34,18 @@ public class CommonResult<T> {
         return failed(SysErrorEnum.SYSTEM_ERROR.getCode(), message);
     }
 
+    public static <T> CommonResult<T> failed(IBaseEum eum) {
+        return failed(eum.getCode(), eum.getMessage());
+    }
+
     public static <T> CommonResult failed(int code, String message) {
-        return new CommonResult(false, code, message, null);
+        StringBuilder sb = new StringBuilder(message);
+        Object snm = ThreadLocalMap.get(ThreadLocalKey.SERIAL_NUMBER.name());
+        if (null != snm && !"".equals(snm)) {
+            sb.append("; 流水号:");
+            sb.append(snm);
+        }
+        return new CommonResult(false, code, sb.toString(), null);
     }
 
     private boolean success;

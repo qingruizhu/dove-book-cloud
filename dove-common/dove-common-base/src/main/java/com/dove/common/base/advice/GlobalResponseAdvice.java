@@ -2,6 +2,8 @@ package com.dove.common.base.advice;
 
 import com.dove.common.base.intercepter.CommonResultIntercepter;
 import com.dove.common.base.vo.CommonResult;
+import com.dove.common.util.holder.ThreadLocalKey;
+import com.dove.common.util.holder.ThreadLocalMap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -16,6 +18,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 
+
 /**
  * @Description: 全局响应处理器
  * @Auther: qingruizhu
@@ -24,8 +27,8 @@ import java.lang.reflect.Method;
 //@RestControllerAdvice
 public class GlobalResponseAdvice implements ResponseBodyAdvice<Object> {
     Logger logger = LoggerFactory.getLogger(GlobalResponseAdvice.class);
-    private static String LOGO_RESPONSE_PREFIX = "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>----------返回报文------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n######################         \n######################         \n######################         \n######################         ";
-    private static String LOGO_RESPONSE_SUFFIX = "\n######################         \n######################         \n######################         \n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>------------END-------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
+    private static String LOGO_RESPONSE_PREFIX = "\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>----------返回报文------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<\n    ####         ####\n   #   #        #   #\n  #####        #####\n #            #\n#            #\n\n";
+    private static String LOGO_RESPONSE_SUFFIX = "\n\n      #        #\n######################\n#         #          #\n>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>------------END-------------<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<";
 
 
     @Override
@@ -45,7 +48,9 @@ public class GlobalResponseAdvice implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class<? extends HttpMessageConverter<?>> aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
         CommonResult<Object> result = CommonResult.success(o);
-        StringBuilder sb = new StringBuilder(LOGO_RESPONSE_PREFIX);
+        Object snm = ThreadLocalMap.get(ThreadLocalKey.SERIAL_NUMBER.name());
+        StringBuilder sb = new StringBuilder(snm.toString());
+        sb.append(LOGO_RESPONSE_PREFIX);
         logger.info(sb.append(result.toString()).append(LOGO_RESPONSE_SUFFIX).toString());
         return result;
     }

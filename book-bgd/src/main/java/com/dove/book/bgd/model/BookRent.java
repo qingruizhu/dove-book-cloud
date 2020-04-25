@@ -1,7 +1,6 @@
 package com.dove.book.bgd.model;
 
 import io.swagger.annotations.ApiModelProperty;
-
 import java.io.Serializable;
 
 public class BookRent implements Serializable {
