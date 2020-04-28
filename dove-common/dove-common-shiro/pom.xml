@@ -3,8 +3,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <parent>
-        <groupId>com.dove.book</groupId>
-        <artifactId>dove-book-cloud</artifactId>
+        <groupId>com.dove</groupId>
+        <artifactId>dove-common</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
@@ -17,30 +17,35 @@
 
     <properties>
         <shiro.spring.version>1.4.0</shiro.spring.version>
-        <jwt.auth0.version>3.2.0</jwt.auth0.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dove.book</groupId>
-            <artifactId>book-bgd</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.dove.book</groupId>-->
+<!--            <artifactId>book-bgd</artifactId>-->
+<!--            <version>0.0.1-SNAPSHOT</version>-->
+<!--        </dependency>-->
         <!--druid-->
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.alibaba</groupId>-->
+        <!--            <artifactId>druid-spring-boot-starter</artifactId>-->
+        <!--        </dependency>-->
 
+
+<!--        <dependency>-->
+<!--            <groupId>org.apache.httpcomponents</groupId>-->
+<!--            <artifactId>httpclient</artifactId>-->
+<!--            <version>4.5.5</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>com.dove.common</groupId>
             <artifactId>dove-common-base</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.5</version>
+            <groupId>com.dove.common</groupId>
+            <artifactId>dove-common-jwt</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <!--shiro-->
         <dependency>
@@ -48,11 +53,8 @@
             <artifactId>shiro-spring</artifactId>
             <version>${shiro.spring.version}</version>
         </dependency>
-        <dependency>
-            <groupId>com.auth0</groupId>
-            <artifactId>java-jwt</artifactId>
-            <version>${jwt.auth0.version}</version>
-        </dependency>
+
+
     </dependencies>
 
 </project>

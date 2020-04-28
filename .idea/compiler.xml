@@ -7,32 +7,46 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="dove-common-swagger" />
-        <module name="dove-book" />
-        <module name="dove-common-shiro" />
+        <module name="dove-book-sso" />
+        <module name="dove-common-redis" />
         <module name="book-bgd" />
+        <module name="dove-common-shiro" />
+        <module name="dove-common-core" />
+        <module name="dove-book" />
         <module name="dove-common-util" />
         <module name="dove-common-base" />
+        <module name="dove-common-jwt" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="book-bgd" target="1.8" />
       <module name="dove-book" target="1.8" />
       <module name="dove-book-cloud" target="1.8" />
+      <module name="dove-book-sso" target="1.8" />
       <module name="dove-common" target="1.8" />
       <module name="dove-common-base" target="1.8" />
+      <module name="dove-common-core" target="1.8" />
+      <module name="dove-common-jwt" target="1.8" />
+      <module name="dove-common-redis" target="1.8" />
       <module name="dove-common-shiro" target="1.8" />
       <module name="dove-common-swagger" target="1.8" />
       <module name="dove-common-util" target="1.8" />
+      <module name="dove-sso" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="book-bgd" options="-parameters" />
       <module name="dove-book" options="-parameters" />
+      <module name="dove-book-sso" options="-parameters" />
       <module name="dove-common-base" options="-parameters" />
+      <module name="dove-common-core" options="-parameters" />
+      <module name="dove-common-jwt" options="-parameters" />
+      <module name="dove-common-redis" options="-parameters" />
       <module name="dove-common-shiro" options="-parameters" />
       <module name="dove-common-swagger" options="-parameters" />
       <module name="dove-common-util" options="-parameters" />
+      <module name="dove-sso" options="-parameters" />
     </option>
   </component>
 </project>

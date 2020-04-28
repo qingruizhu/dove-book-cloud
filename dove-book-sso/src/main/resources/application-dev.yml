@@ -1,0 +1,27 @@
+spring:
+  #datasouce
+  datasource:
+    # &serverTimezone=Asia/Shanghai 解决插入数据库时间和 new date() 时间不一致
+    # &useSSL=false 批量修改设置
+    url: jdbc:mysql://123.57.102.27:3306/zqr_dove_book?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      initial-size: 0
+      max-active: 100
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 60000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      min-evictable-idle-time-millis: 100000
+      time-between-eviction-runs-millis: 60000 #默认60s
+      #      connection-error-retry-attempts: 3 #超时重试次数
+      break-after-acquire-failure: true #解决druid获取链接失败后刷日志问题
+      fail-fast: true #解决druid获取链接失败后线程卡死问题

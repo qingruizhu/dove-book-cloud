@@ -1,7 +1,6 @@
 package com.dove.common.shiro.credential;
 
-import com.dove.common.shiro.dto.User;
-import com.dove.common.shiro.util.JwtTokenUtil;
+import com.dove.common.jwt.util.JwtTokenUtil;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.credential.CredentialsMatcher;
@@ -21,20 +20,8 @@ public class JWTCredentialsMatcher implements CredentialsMatcher {
     @Override
     public boolean doCredentialsMatch(AuthenticationToken authenticationToken, AuthenticationInfo authenticationInfo) {
         String token = (String) authenticationToken.getCredentials();
-        String salt = authenticationInfo.getCredentials().toString();
-        User user = (User) authenticationInfo.getPrincipals().getPrimaryPrincipal();
-        try {
-//            Algorithm algorithm = Algorithm.HMAC256(salt);
-//            JWTVerifier verifier = JWT.require(algorithm)
-//                    .withClaim("username", user.getUsername())
-//                    .build();
-//            verifier.verify(token);
-
-            return jwtTokenUtil.verify(token, user.getId().toString());
-        } catch (Exception e) {
-            log.error("Token Error:{}", e.getMessage());
-            return false;
-        }
+        ShiroUser user = (ShiroUser) authenticationInfo.getPrincipals().getPrimaryPrincipal();
+        return jwtTokenUtil.verify(token, user.getUsername());
     }
 
 }

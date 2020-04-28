@@ -25,6 +25,11 @@
             <artifactId>dove-common-util</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.dove.common</groupId>
+            <artifactId>dove-common-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

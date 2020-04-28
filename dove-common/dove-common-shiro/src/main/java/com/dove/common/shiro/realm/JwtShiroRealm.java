@@ -1,10 +1,10 @@
 package com.dove.common.shiro.realm;
 
+import com.dove.common.jwt.util.JwtTokenUtil;
 import com.dove.common.shiro.credential.JWTCredentialsMatcher;
-import com.dove.common.shiro.dto.User;
-import com.dove.common.shiro.service.IUserService;
+import com.dove.common.shiro.credential.ShiroUser;
+import com.dove.common.shiro.service.UserShiroService;
 import com.dove.common.shiro.token.JWTToken;
-import com.dove.common.shiro.util.JwtTokenUtil;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -27,7 +27,7 @@ import java.util.Set;
 public class JwtShiroRealm extends AuthorizingRealm {
 
     @Resource
-    private IUserService userService;
+    private UserShiroService userService;
 
     public JwtShiroRealm(JWTCredentialsMatcher matcher) {
         this.setCredentialsMatcher(matcher);
@@ -47,11 +47,11 @@ public class JwtShiroRealm extends AuthorizingRealm {
         JWTToken jwtToken = (JWTToken) authcToken;
         String token = jwtToken.getToken();
 
-        User user = userService.getUserInfo(Long.parseLong(JwtTokenUtil.getUid(token)));
-        if (user == null)
-            throw new AuthenticationException("token过期，请重新登录");
+        ShiroUser shiroUser = userService.getUserInfo(JwtTokenUtil.getSubject(token));
+        if (shiroUser == null)
+            throw new AuthenticationException("token失效，请重新登录");
 
-        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(user, token, "jwtShiroRealm");
+        SimpleAuthenticationInfo authenticationInfo = new SimpleAuthenticationInfo(shiroUser, token, this.getName());
 
         return authenticationInfo;
     }
@@ -59,22 +59,21 @@ public class JwtShiroRealm extends AuthorizingRealm {
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-        User user = (User) principals.getPrimaryPrincipal();
+        ShiroUser user = (ShiroUser) principals.getPrimaryPrincipal();
         Set<String> roles = user.getRoles();
         if (CollectionUtils.isEmpty(roles)) {
             roles = userService.getUserRoles(user.getId());
-            user.setRoles(roles);
         }
         if (roles != null) {
-            simpleAuthorizationInfo.addRoles(roles);
+            simpleAuthorizationInfo.setRoles(roles);
         }
         Set<String> permissions = user.getPermissions();
         if (CollectionUtils.isEmpty(permissions)) {
             permissions = userService.getUserPermissions(user.getId());
-            user.setPermissions(permissions);
         }
         if (permissions != null) {
-            simpleAuthorizationInfo.addStringPermissions(permissions);
+            simpleAuthorizationInfo.setStringPermissions(permissions);
+            user.setPermissions(permissions);
         }
         return simpleAuthorizationInfo;
     }

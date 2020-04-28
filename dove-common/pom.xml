@@ -20,7 +20,17 @@
     <packaging>pom</packaging>
     <description>common for 飞鸽</description>
 
-    <dependencies>
-    </dependencies>
+    <properties>
+        <jwt.auth0.version>3.2.0</jwt.auth0.version>
+    </properties>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.auth0</groupId>
+                <artifactId>java-jwt</artifactId>
+                <version>${jwt.auth0.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>

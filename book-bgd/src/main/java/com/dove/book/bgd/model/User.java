@@ -2,21 +2,21 @@ package com.dove.book.bgd.model;
 
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
-import java.util.Set;
 
 public class User implements Serializable {
-    private Set<Role> roles;
-
     private Long id;
 
     @ApiModelProperty(value = "账号")
-    private String account;
+    private String username;
 
     @ApiModelProperty(value = "密码")
     private String password;
 
+    @ApiModelProperty(value = "手机号")
+    private String phone;
+
     @ApiModelProperty(value = "姓名")
-    private String name;
+    private String realname;
 
     @ApiModelProperty(value = "性别")
     private Integer sex;
@@ -40,12 +40,12 @@ public class User implements Serializable {
         this.id = id;
     }
 
-    public String getAccount() {
-        return account;
+    public String getUsername() {
+        return username;
     }
 
-    public void setAccount(String account) {
-        this.account = account;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -56,12 +56,20 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getName() {
-        return name;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getRealname() {
+        return realname;
+    }
+
+    public void setRealname(String realname) {
+        this.realname = realname;
     }
 
     public Integer getSex() {
@@ -96,14 +104,6 @@ public class User implements Serializable {
         this.star = star;
     }
 
-    public Set<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(Set<Role> roles) {
-        this.roles = roles;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -111,9 +111,10 @@ public class User implements Serializable {
         sb.append(" [");
         sb.append("Hash = ").append(hashCode());
         sb.append(", id=").append(id);
-        sb.append(", account=").append(account);
+        sb.append(", username=").append(username);
         sb.append(", password=").append(password);
-        sb.append(", name=").append(name);
+        sb.append(", phone=").append(phone);
+        sb.append(", realname=").append(realname);
         sb.append(", sex=").append(sex);
         sb.append(", icon=").append(icon);
         sb.append(", growth=").append(growth);

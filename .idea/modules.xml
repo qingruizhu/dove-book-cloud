@@ -5,8 +5,12 @@
       <module fileurl="file://$PROJECT_DIR$/book-bgd/book-bgd.iml" filepath="$PROJECT_DIR$/book-bgd/book-bgd.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book/dove-book.iml" filepath="$PROJECT_DIR$/dove-book/dove-book.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book-cloud.iml" filepath="$PROJECT_DIR$/dove-book-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" filepath="$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common.iml" filepath="$PROJECT_DIR$/dove-common/dove-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-base/dove-common-base.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-base/dove-common-base.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-core/dove-common-core.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-core/dove-common-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-jwt/dove-common-jwt.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-jwt/dove-common-jwt.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-redis/dove-common-redis.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-redis/dove-common-redis.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-shiro/dove-common-shiro.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-shiro/dove-common-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-swagger/dove-common-swagger.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-swagger/dove-common-swagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-util/dove-common-util.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-util/dove-common-util.iml" />

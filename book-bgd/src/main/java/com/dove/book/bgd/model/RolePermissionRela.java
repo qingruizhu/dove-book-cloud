@@ -6,10 +6,8 @@ import java.io.Serializable;
 public class RolePermissionRela implements Serializable {
     private Long id;
 
-    @ApiModelProperty(value = "角色id")
     private Long roleId;
 
-    @ApiModelProperty(value = "权限id")
     private Long permissionId;
 
     private static final long serialVersionUID = 1L;

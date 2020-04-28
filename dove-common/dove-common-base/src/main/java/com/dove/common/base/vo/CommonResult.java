@@ -1,8 +1,8 @@
 package com.dove.common.base.vo;
 
 
-import com.dove.common.base.enm.IBaseEum;
-import com.dove.common.base.enm.SysErrorEnum;
+import com.dove.common.core.enm.IBaseEum;
+import com.dove.common.core.enm.SysErrorEnum;
 import com.dove.common.util.holder.ThreadLocalKey;
 import com.dove.common.util.holder.ThreadLocalMap;
 
@@ -15,6 +15,10 @@ public class CommonResult<T> {
     /**
      * 成功
      */
+    public static <T> CommonResult<T> success() {
+        return success(null);
+    }
+
     public static <T> CommonResult<T> success(T data) {
         return success(data, SysErrorEnum.SUCCESS.getMessage());
     }

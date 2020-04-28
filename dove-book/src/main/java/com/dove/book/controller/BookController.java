@@ -4,11 +4,10 @@ import com.dove.book.bgd.model.Book;
 import com.dove.book.bgd.service.IBookService;
 import com.dove.book.dto.BookDto;
 import com.dove.book.enm.BookErrorEnum;
-import com.dove.book.exception.BookBusinessException;
+import com.dove.book.exception.BookBaseException;
 import com.dove.common.base.annotation.CommonResultAnnon;
 import com.dove.common.base.validate.QueryGroup;
 import com.dove.common.util.page.CommonPage;
-import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -16,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,12 +31,17 @@ public class BookController {
 
     @Autowired
     private IBookService<BookDto> service;
-
-
+    List<byte[]> list = new ArrayList<byte[]>();
     @ApiOperation("分页【书籍列表】")
-    @RequestMapping(value = "/list", method = RequestMethod.POST)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public CommonPage<Book> list(
             @RequestBody BookDto bookDto) {
+
+        for (int i = 0; i < 10; i++) {
+            list.add(new byte[10 * 1024 * 1024]);
+            System.out.println("第" + (i++) + "次分配");
+        }
+
 //        PageHelper.startPage(bookDto.getPageNum(), bookDto.getPageSize());
 //        List<Book> books = service.listQ(bookDto);
 //        return CommonPage.restPage(books);
@@ -56,7 +61,7 @@ public class BookController {
             @RequestBody @Validated(QueryGroup.Insert.class)
                     BookDto bookDto) {
         if (service.insertQ(bookDto) <= 0)
-            throw new BookBusinessException(BookErrorEnum.BOOK_ERROR_CREATE);
+            throw new BookBaseException(BookErrorEnum.BOOK_ERROR_CREATE);
     }
 
     @ApiOperation("修改【书籍】")
@@ -66,7 +71,7 @@ public class BookController {
             @Validated(QueryGroup.Update.class)
                     BookDto bookDto) {
         if (service.updateQ(bookDto) <= 0)
-            throw new BookBusinessException(BookErrorEnum.BOOK_ERROR_UPDATE);
+            throw new BookBaseException(BookErrorEnum.BOOK_ERROR_UPDATE);
     }
 
     @ApiOperation("删除【书籍】")
@@ -74,6 +79,6 @@ public class BookController {
     public void delete(
             @PathVariable("id") @ApiParam("书籍id") Long id) {
         if (service.delete(id) <= 0)
-            throw new BookBusinessException(BookErrorEnum.BOOK_ERROR_DEL);
+            throw new BookBaseException(BookErrorEnum.BOOK_ERROR_DEL);
     }
 }

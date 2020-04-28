@@ -1,7 +1,7 @@
 package com.dove.book.enm;
 
 
-import com.dove.common.base.enm.IBaseEum;
+import com.dove.common.core.enm.IBaseEum;
 
 /**
  * @Description: 书籍业务异常 信息枚举

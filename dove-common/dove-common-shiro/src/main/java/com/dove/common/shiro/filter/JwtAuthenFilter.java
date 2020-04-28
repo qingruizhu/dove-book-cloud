@@ -2,9 +2,9 @@ package com.dove.common.shiro.filter;
 
 import cn.hutool.json.JSONUtil;
 import com.dove.common.base.vo.CommonResult;
-import com.dove.common.shiro.dto.User;
+import com.dove.common.jwt.util.JwtTokenUtil;
+import com.dove.common.shiro.credential.ShiroUser;
 import com.dove.common.shiro.token.JWTToken;
-import com.dove.common.shiro.util.JwtTokenUtil;
 import org.apache.commons.lang.BooleanUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -103,7 +103,10 @@ public class JwtAuthenFilter extends BasicHttpAuthenticationFilter {
     protected AuthenticationToken createToken(ServletRequest servletRequest, ServletResponse servletResponse) {
         String allToken = this.getAuthzHeader(servletRequest);
         String jwtToken = StringUtils.removeStart(allToken, JWT_AUTHZSCHEME).trim();
-        if (JwtTokenUtil.isTokenExpired(jwtToken)) return null;
+        if (JwtTokenUtil.isTokenExpired(jwtToken)) {
+            log.error("token 过期");
+            return null;
+        }
         return new JWTToken(jwtToken);
     }
 
@@ -115,11 +118,12 @@ public class JwtAuthenFilter extends BasicHttpAuthenticationFilter {
         HttpServletResponse httpResponse = WebUtils.toHttp(response);
         if (token instanceof JWTToken) {
             JWTToken jwtToken = (JWTToken) token;
-            User user = (User) subject.getPrincipal();
+            ShiroUser user = (ShiroUser) subject.getPrincipal();
             boolean shouldRefresh = shouldTokenRefresh(JwtTokenUtil.getIssuedAt(jwtToken.getToken()));
             if (shouldRefresh) {
-                String newToken = jwtTokenUtil.sign(user.getId().toString());
-                if (StringUtils.isNotBlank(newToken)) httpResponse.setHeader("x-auth-token", newToken);
+                String newToken = jwtTokenUtil.sign(user.getUsername());
+                if (StringUtils.isNotBlank(newToken))
+                    httpResponse.setHeader(AUTHORIZATION_HEADER, JWT_AUTHZSCHEME + " " + newToken);
             }
         }
         return true;

@@ -5,8 +5,13 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-shiro/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-jwt/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-core/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-sso/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-redis/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" project-jdk-name="12" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="12" project-jdk-type="JavaSDK" />
 </project>

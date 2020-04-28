@@ -55,9 +55,9 @@ public class TreeNodeUtil {
 
 
     public interface Node<T> {
-        public Integer getId();
+        public Long getId();
 
-        public Integer getParentId();
+        public Long getParentId();
 
         public List<T> getChildren();
 

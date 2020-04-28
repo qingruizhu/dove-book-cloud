@@ -1,8 +1,8 @@
 package com.dove.common.base.advice;
 
 
-import com.dove.common.base.enm.SysErrorEnum;
-import com.dove.common.base.exception.BusinessException;
+import com.dove.common.core.enm.SysErrorEnum;
+import com.dove.common.base.exception.BaseException;
 import com.dove.common.base.vo.CommonResult;
 import com.dove.common.util.holder.ThreadLocalKey;
 import com.dove.common.util.holder.ThreadLocalMap;
@@ -42,8 +42,8 @@ public class GlobalExceptionHandle {
         return CommonResult.failed();
     }
 
-    @ExceptionHandler(BusinessException.class)
-    public CommonResult handle(BusinessException e) {
+    @ExceptionHandler(BaseException.class)
+    public CommonResult handle(BaseException e) {
         logger.error(snmAppendErrorMsg("【基础业务】失败--->>>{}"), e.getMessage());
         return CommonResult.failed(e.getCode(), e.getMessage());
     }

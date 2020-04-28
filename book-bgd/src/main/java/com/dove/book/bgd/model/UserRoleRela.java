@@ -6,10 +6,8 @@ import java.io.Serializable;
 public class UserRoleRela implements Serializable {
     private Long id;
 
-    @ApiModelProperty(value = "用户id")
     private Long userId;
 
-    @ApiModelProperty(value = "角色id")
     private Long roleId;
 
     private static final long serialVersionUID = 1L;
