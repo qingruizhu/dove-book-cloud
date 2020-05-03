@@ -13,7 +13,7 @@ public class Book implements Serializable {
     private String name;
 
     @ApiModelProperty(value = "书的简介")
-    private String desc;
+    private String bookDesc;
 
     @ApiModelProperty(value = "书主对书的介绍")
     private String userDesc;
@@ -56,12 +56,12 @@ public class Book implements Serializable {
         this.name = name;
     }
 
-    public String getDesc() {
-        return desc;
+    public String getBookDesc() {
+        return bookDesc;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc;
+    public void setBookDesc(String bookDesc) {
+        this.bookDesc = bookDesc;
     }
 
     public String getUserDesc() {
@@ -113,7 +113,7 @@ public class Book implements Serializable {
         sb.append(", id=").append(id);
         sb.append(", userId=").append(userId);
         sb.append(", name=").append(name);
-        sb.append(", desc=").append(desc);
+        sb.append(", bookDesc=").append(bookDesc);
         sb.append(", userDesc=").append(userDesc);
         sb.append(", price=").append(price);
         sb.append(", rentPrice=").append(rentPrice);

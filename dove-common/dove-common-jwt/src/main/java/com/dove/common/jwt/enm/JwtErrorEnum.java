@@ -10,7 +10,7 @@ import com.dove.common.core.enm.IBaseEum;
 public enum JwtErrorEnum implements IBaseEum {
 
     JWT_ERROR_SIGN(300, "jwt签名失败"),
-    JWT_ERROR_SIGN_HVT_KEY_UID(500, "jwt签名失败,[claims]未设置[uid]"),
+    JWT_ERROR_SIGN_HVT_SUBJECT(500, "jwt签名失败,[claims]未设置[uid]"),
     JWT_ERROR_GET_ALGORITHM(500, "jwt异常,获取[Algorithm]失败")
 
 

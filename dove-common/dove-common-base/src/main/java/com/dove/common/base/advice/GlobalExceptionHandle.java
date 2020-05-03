@@ -1,9 +1,9 @@
 package com.dove.common.base.advice;
 
 
-import com.dove.common.core.enm.SysErrorEnum;
 import com.dove.common.base.exception.BaseException;
 import com.dove.common.base.vo.CommonResult;
+import com.dove.common.core.enm.SysErrorEnum;
 import com.dove.common.util.holder.ThreadLocalKey;
 import com.dove.common.util.holder.ThreadLocalMap;
 import org.slf4j.Logger;
@@ -14,6 +14,7 @@ import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import javax.validation.ConstraintViolation;
 import javax.validation.ConstraintViolationException;
@@ -21,9 +22,22 @@ import java.util.Arrays;
 import java.util.List;
 
 
-//@RestControllerAdvice(annotations = RestController.class)
+@RestControllerAdvice/*(annotations = RestController.class)*/
 public class GlobalExceptionHandle {
     protected Logger logger = LoggerFactory.getLogger(GlobalExceptionHandle.class);
+
+
+    @ExceptionHandler(Exception.class)
+    public CommonResult handle(Exception e) {
+        logger.error(this.snmAppendErrorMsg(SysErrorEnum.SYSTEM_ERROR.getMessage()), e);
+        return CommonResult.failed();
+    }
+
+    @ExceptionHandler(BaseException.class)
+    public CommonResult handle(BaseException e) {
+        logger.error(this.snmAppendErrorMsg("【基础业务】失败--->>>{}"), e.getMessage());
+        return CommonResult.failed(e.getCode(), e.getMessage());
+    }
 
     public String snmAppendErrorMsg(String errorMsg) {
         StringBuilder sb = new StringBuilder();
@@ -35,19 +49,6 @@ public class GlobalExceptionHandle {
         sb.append(errorMsg);
         return sb.toString();
     }
-
-    @ExceptionHandler(Exception.class)
-    public CommonResult handle(Exception e) {
-        logger.error(snmAppendErrorMsg(SysErrorEnum.SYSTEM_ERROR.getMessage()), e);
-        return CommonResult.failed();
-    }
-
-    @ExceptionHandler(BaseException.class)
-    public CommonResult handle(BaseException e) {
-        logger.error(snmAppendErrorMsg("【基础业务】失败--->>>{}"), e.getMessage());
-        return CommonResult.failed(e.getCode(), e.getMessage());
-    }
-
 
     //请求方式有误
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)

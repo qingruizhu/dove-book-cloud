@@ -294,73 +294,73 @@ public class BookExample {
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNull() {
-            addCriterion("desc is null");
+        public Criteria andBookDescIsNull() {
+            addCriterion("book_desc is null");
             return (Criteria) this;
         }
 
-        public Criteria andDescIsNotNull() {
-            addCriterion("desc is not null");
+        public Criteria andBookDescIsNotNull() {
+            addCriterion("book_desc is not null");
             return (Criteria) this;
         }
 
-        public Criteria andDescEqualTo(String value) {
-            addCriterion("desc =", value, "desc");
+        public Criteria andBookDescEqualTo(String value) {
+            addCriterion("book_desc =", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotEqualTo(String value) {
-            addCriterion("desc <>", value, "desc");
+        public Criteria andBookDescNotEqualTo(String value) {
+            addCriterion("book_desc <>", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThan(String value) {
-            addCriterion("desc >", value, "desc");
+        public Criteria andBookDescGreaterThan(String value) {
+            addCriterion("book_desc >", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescGreaterThanOrEqualTo(String value) {
-            addCriterion("desc >=", value, "desc");
+        public Criteria andBookDescGreaterThanOrEqualTo(String value) {
+            addCriterion("book_desc >=", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThan(String value) {
-            addCriterion("desc <", value, "desc");
+        public Criteria andBookDescLessThan(String value) {
+            addCriterion("book_desc <", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLessThanOrEqualTo(String value) {
-            addCriterion("desc <=", value, "desc");
+        public Criteria andBookDescLessThanOrEqualTo(String value) {
+            addCriterion("book_desc <=", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescLike(String value) {
-            addCriterion("desc like", value, "desc");
+        public Criteria andBookDescLike(String value) {
+            addCriterion("book_desc like", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotLike(String value) {
-            addCriterion("desc not like", value, "desc");
+        public Criteria andBookDescNotLike(String value) {
+            addCriterion("book_desc not like", value, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescIn(List<String> values) {
-            addCriterion("desc in", values, "desc");
+        public Criteria andBookDescIn(List<String> values) {
+            addCriterion("book_desc in", values, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotIn(List<String> values) {
-            addCriterion("desc not in", values, "desc");
+        public Criteria andBookDescNotIn(List<String> values) {
+            addCriterion("book_desc not in", values, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescBetween(String value1, String value2) {
-            addCriterion("desc between", value1, value2, "desc");
+        public Criteria andBookDescBetween(String value1, String value2) {
+            addCriterion("book_desc between", value1, value2, "bookDesc");
             return (Criteria) this;
         }
 
-        public Criteria andDescNotBetween(String value1, String value2) {
-            addCriterion("desc not between", value1, value2, "desc");
+        public Criteria andBookDescNotBetween(String value1, String value2) {
+            addCriterion("book_desc not between", value1, value2, "bookDesc");
             return (Criteria) this;
         }
 

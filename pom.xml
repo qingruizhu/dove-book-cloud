@@ -5,6 +5,7 @@
     <modules>
         <module>dove-common</module>
         <module>dove-book</module>
+        <module>dove-book-sso</module>
         <module>book-bgd</module>
     </modules>
     <parent>

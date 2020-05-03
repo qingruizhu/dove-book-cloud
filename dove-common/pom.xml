@@ -4,6 +4,10 @@
     <modules>
         <module>dove-common-util</module>
         <module>dove-common-base</module>
+        <module>dove-common-core</module>
+        <module>dove-common-redis</module>
+        <module>dove-common-jwt</module>
+        <module>dove-common-shiro</module>
         <module>dove-common-swagger</module>
     </modules>
 
@@ -22,6 +26,9 @@
 
     <properties>
         <jwt.auth0.version>3.2.0</jwt.auth0.version>
+        <jackson.databind.version>2.10.0</jackson.databind.version>
+        <slf4j.api.version>1.7.30</slf4j.api.version>
+        <shiro.spring.version>1.4.0</shiro.spring.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -29,6 +36,24 @@
                 <groupId>com.auth0</groupId>
                 <artifactId>java-jwt</artifactId>
                 <version>${jwt.auth0.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
+                <version>${jackson.databind.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.api.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.shiro</groupId>
+                <artifactId>shiro-spring</artifactId>
+                <version>${shiro.spring.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

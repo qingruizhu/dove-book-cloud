@@ -10,6 +10,13 @@
         <option value="$PROJECT_DIR$/dove-common/dove-common-core/pom.xml" />
         <option value="$PROJECT_DIR$/dove-book-sso/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-redis/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-sso/dove-book-sso-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-sso/dove-book-sso-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-common/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-server/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-sso/book-sso-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-sso/book-sso-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-core/pom.xml" />
       </list>
     </option>
   </component>

@@ -693,6 +693,76 @@ public class UserExample {
             addCriterion("star not between", value1, value2, "star");
             return (Criteria) this;
         }
+
+        public Criteria andPwdSaltIsNull() {
+            addCriterion("pwd_salt is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltIsNotNull() {
+            addCriterion("pwd_salt is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltEqualTo(String value) {
+            addCriterion("pwd_salt =", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltNotEqualTo(String value) {
+            addCriterion("pwd_salt <>", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltGreaterThan(String value) {
+            addCriterion("pwd_salt >", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltGreaterThanOrEqualTo(String value) {
+            addCriterion("pwd_salt >=", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltLessThan(String value) {
+            addCriterion("pwd_salt <", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltLessThanOrEqualTo(String value) {
+            addCriterion("pwd_salt <=", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltLike(String value) {
+            addCriterion("pwd_salt like", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltNotLike(String value) {
+            addCriterion("pwd_salt not like", value, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltIn(List<String> values) {
+            addCriterion("pwd_salt in", values, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltNotIn(List<String> values) {
+            addCriterion("pwd_salt not in", values, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltBetween(String value1, String value2) {
+            addCriterion("pwd_salt between", value1, value2, "pwdSalt");
+            return (Criteria) this;
+        }
+
+        public Criteria andPwdSaltNotBetween(String value1, String value2) {
+            addCriterion("pwd_salt not between", value1, value2, "pwdSalt");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

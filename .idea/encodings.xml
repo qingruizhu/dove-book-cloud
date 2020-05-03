@@ -2,13 +2,15 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/book-bgd/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dove-book-sso/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-sso/book-sso-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-sso/book-sso-provider/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-book/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-base/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-core/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-jwt/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-redis/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dove-common/dove-common-shiro/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-core/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-swagger/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/dove-common/dove-common-util/src/main/java" charset="UTF-8" />
   </component>

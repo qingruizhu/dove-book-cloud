@@ -7,9 +7,14 @@ public interface RedisService {
     /**
      * 存储数据
      */
-    void set(String key, Object value);
+    boolean set(String key, Object value);
 
-    void set(String key, Object value, long expire);
+    boolean set(String key, Object value, long expire);
+
+    /**
+     * 是否存在key
+     */
+    boolean exist(String key);
 
     /**
      * 获取数据
@@ -26,7 +31,7 @@ public interface RedisService {
     /**
      * 删除数据
      */
-    void remove(String key);
+    boolean del(String key);
 
     /**
      * 自增操作

@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/book-bgd/book-bgd.iml" filepath="$PROJECT_DIR$/book-bgd/book-bgd.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/book-sso-api/book-sso-api.iml" filepath="$PROJECT_DIR$/dove-book-sso/book-sso-api/book-sso-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/book-sso-provider/book-sso-provider.iml" filepath="$PROJECT_DIR$/dove-book-sso/book-sso-provider/book-sso-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book/dove-book.iml" filepath="$PROJECT_DIR$/dove-book/dove-book.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book-cloud.iml" filepath="$PROJECT_DIR$/dove-book-cloud.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" filepath="$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" />
@@ -14,6 +16,8 @@
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-shiro/dove-common-shiro.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-shiro/dove-common-shiro.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-swagger/dove-common-swagger.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-swagger/dove-common-swagger.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-util/dove-common-util.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-util/dove-common-util.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-core/shiro-core.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-core/shiro-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-server/shiro-server.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-server/shiro-server.iml" />
     </modules>
   </component>
 </project>

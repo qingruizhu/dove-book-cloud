@@ -16,7 +16,7 @@ public class BookExceptionAdvice extends GlobalExceptionHandle {
 
     @ExceptionHandler(BookBaseException.class)
     public CommonResult handle(BookBaseException e) {
-        logger.error("---------【书籍业务】失败------>>>{}", e.getMessage());
+        logger.error(snmAppendErrorMsg("【书籍业务】失败------>>>{}"), e.getMessage());
         return CommonResult.failed(e.getCode(), e.getMessage());
     }
 

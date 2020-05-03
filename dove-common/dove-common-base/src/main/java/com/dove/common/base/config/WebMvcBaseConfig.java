@@ -2,12 +2,14 @@ package com.dove.common.base.config;
 
 import com.dove.common.base.intercepter.CommonResultIntercepter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 @ConditionalOnMissingBean(CommonResultIntercepter.class)
+@ComponentScan("com.dove.common.**.advice")
 public class WebMvcBaseConfig implements WebMvcConfigurer {
 
     /*@Override

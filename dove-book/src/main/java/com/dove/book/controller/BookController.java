@@ -8,6 +8,7 @@ import com.dove.book.exception.BookBaseException;
 import com.dove.common.base.annotation.CommonResultAnnon;
 import com.dove.common.base.validate.QueryGroup;
 import com.dove.common.util.page.CommonPage;
+import com.github.pagehelper.PageHelper;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
@@ -15,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -31,21 +31,14 @@ public class BookController {
 
     @Autowired
     private IBookService<BookDto> service;
-    List<byte[]> list = new ArrayList<byte[]>();
+
     @ApiOperation("分页【书籍列表】")
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.POST)
     public CommonPage<Book> list(
             @RequestBody BookDto bookDto) {
-
-        for (int i = 0; i < 10; i++) {
-            list.add(new byte[10 * 1024 * 1024]);
-            System.out.println("第" + (i++) + "次分配");
-        }
-
-//        PageHelper.startPage(bookDto.getPageNum(), bookDto.getPageSize());
-//        List<Book> books = service.listQ(bookDto);
-//        return CommonPage.restPage(books);
-        return null;
+        PageHelper.startPage(bookDto.getPageNum(), bookDto.getPageSize());
+        List<Book> books = service.listQ(bookDto);
+        return CommonPage.restPage(books);
     }
 
     @ApiOperation("所有【书籍列表】")

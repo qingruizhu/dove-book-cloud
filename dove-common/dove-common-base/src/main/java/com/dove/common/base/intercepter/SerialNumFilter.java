@@ -28,6 +28,8 @@ public class SerialNumFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, FilterChain filterChain) throws ServletException, IOException {
         try {
+            String requestURI = httpServletRequest.getRequestURI();
+            StringBuffer requestURL = httpServletRequest.getRequestURL();
             String serialnum = RandomUtil.generateUniqCode().toString();
             ThreadLocalMap.put(ThreadLocalKey.SERIAL_NUMBER.name(), serialnum);
             logger.info("the request's serialnum : {}", serialnum);

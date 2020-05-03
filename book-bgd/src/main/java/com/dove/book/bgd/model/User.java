@@ -30,6 +30,9 @@ public class User implements Serializable {
     @ApiModelProperty(value = "热度")
     private Long star;
 
+    @ApiModelProperty(value = "密码")
+    private String pwdSalt;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -104,6 +107,14 @@ public class User implements Serializable {
         this.star = star;
     }
 
+    public String getPwdSalt() {
+        return pwdSalt;
+    }
+
+    public void setPwdSalt(String pwdSalt) {
+        this.pwdSalt = pwdSalt;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -119,6 +130,7 @@ public class User implements Serializable {
         sb.append(", icon=").append(icon);
         sb.append(", growth=").append(growth);
         sb.append(", star=").append(star);
+        sb.append(", pwdSalt=").append(pwdSalt);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();
