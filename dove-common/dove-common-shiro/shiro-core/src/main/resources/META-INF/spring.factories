@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-        com.dove.common.shiro.core.config.BeanPostConfig,\
-        com.dove.common.shiro.core.config.CoreShiroConfig

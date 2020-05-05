@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modules>
-        <module>dove-common</module>
+        <!--        <module>dove-common</module>-->
         <module>dove-book</module>
         <module>dove-book-sso</module>
         <module>book-bgd</module>
