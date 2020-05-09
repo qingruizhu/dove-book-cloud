@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modules>
+        <module>book-sso-api</module>
+    </modules>
+
+    <parent>
+        <groupId>com.dove.book</groupId>
+        <artifactId>dove-book-cloud</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.dove.book.api</groupId>
+    <artifactId>dove-book-api</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>dove-book-api</name>
+    <packaging>pom</packaging>
+    <description>api for book</description>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.dove.book</groupId>
+            <artifactId>book-bgd</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+
+
+</project>

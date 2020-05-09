@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dove.book.api.sso.dao.SsoDao">
+
+    <resultMap id="BaseRoleMap" type="com.dove.book.bgd.model.Role">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="description" jdbcType="VARCHAR" property="description"/>
+        <result column="user_count" jdbcType="INTEGER" property="userCount"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+    </resultMap>
+    <resultMap id="BasePermissionMap" type="com.dove.book.bgd.model.Permission">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <result column="pid" jdbcType="BIGINT" property="pid"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="value" jdbcType="VARCHAR" property="value"/>
+        <result column="icon" jdbcType="VARCHAR" property="icon"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="uri" jdbcType="VARCHAR" property="uri"/>
+        <result column="status" jdbcType="INTEGER" property="status"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="sort" jdbcType="INTEGER" property="sort"/>
+    </resultMap>
+
+    <sql id="Base_Role_List">
+    r.id, r.name, r.value, r.description, r.user_count, r.create_time, r.status, r.sort
+    </sql>
+    <sql id="Base_Permission_List">
+    p.id, p.pid, p.name, p.value, p.icon, p.type, p.uri, p.status, p.create_time, p.sort
+  </sql>
+
+    <select id="getRolesByUserId" parameterType="java.lang.Long" resultMap="BaseRoleMap">
+        SELECT
+        <include refid="Base_Role_List"/>
+        FROM
+        role r
+        LEFT JOIN user_role_rela l ON r.id=l.role_id
+        <where>
+            l.user_id=#{userId,jdbcType=BIGINT}
+        </where>
+        GROUP BY r.id
+    </select>
+
+    <select id="getPermissionsByUserId" parameterType="java.lang.Long" resultMap="BasePermissionMap">
+        SELECT
+        <include refid="Base_Permission_List"/>
+        FROM
+        user_role_rela l1
+        RIGHT JOIN role_permission_rela l2 ON l1.role_id = l2.role_id
+        RIGHT JOIN permission p ON p.id = l2.permission_id
+        <where>
+            l1.user_id=#{userId,jdbcType=BIGINT}
+        </where>
+        GROUP BY p.id
+    </select>
+
+    <select id="getPermissionsByRoleId" parameterType="java.lang.Long" resultMap="BasePermissionMap">
+        SELECT
+        <include refid="Base_Permission_List"/>
+        FROM
+        permission p
+        LEFT JOIN role_permission_rela l ON p.id=l.permission_id
+        <where>
+            l.role_id=#{roleId,jdbcType=BIGINT}
+        </where>
+        GROUP BY p.id
+    </select>
+
+
+    <!--    <select id="getAuthsByRoleId" parameterType="java.lang.Integer" resultMap="BaseAuthMap">-->
+    <!--        SELECT-->
+    <!--        <include refid="Base_Auth_List"/>-->
+    <!--        FROM tab_auth a LEFT JOIN tab_sys_role_auth_map m ON a.authId=m.authId-->
+    <!--        <where>-->
+    <!--            <if test="null!=roleId and ''!=roleId">m.roleId= #{roleId,jdbcType=INTEGER}</if>-->
+    <!--            <if test="null!=authplantform and ''!=authplantform">and a.authplantform=#{authplantform,jdbcType=INTEGER}-->
+    <!--            </if>-->
+    <!--        </where>-->
+    <!--        GROUP BY a.authId-->
+    <!--    </select>-->
+
+
+</mapper>

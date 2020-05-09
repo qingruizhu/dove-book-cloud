@@ -8,7 +8,6 @@
         <option value="$PROJECT_DIR$/dove-sso/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-jwt/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-core/pom.xml" />
-        <option value="$PROJECT_DIR$/dove-book-sso/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-redis/pom.xml" />
         <option value="$PROJECT_DIR$/dove-book-sso/dove-book-sso-api/pom.xml" />
         <option value="$PROJECT_DIR$/dove-book-sso/dove-book-sso-provider/pom.xml" />
@@ -18,8 +17,13 @@
         <option value="$PROJECT_DIR$/dove-book-sso/book-sso-api/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/dove-common-shiro/shiro-core/pom.xml" />
         <option value="$PROJECT_DIR$/dove-common/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-api/book-sso-api/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-provider/book-sso-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/dove-book-provider/book-provider/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_12" default="false" project-jdk-name="12" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK" />
 </project>

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/book-bgd/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dove-book-sso/book-sso-api/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dove-book-sso/book-sso-provider/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/dove-book/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/book-bgd/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-api/book-sso-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-provider/book-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-provider/book-provider2/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-provider/book-provider2/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-provider/book-sso-provider/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/dove-book-provider/book-sso-provider/src/main/resources" charset="UTF-8" />
   </component>
 </project>

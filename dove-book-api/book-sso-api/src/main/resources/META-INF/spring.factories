@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+        com.dove.book.api.sso.config.MyBatisConfig

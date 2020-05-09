@@ -3,6 +3,7 @@ package com.dove.book.bgd.mapper;
 import com.dove.book.bgd.model.Role;
 import com.dove.book.bgd.model.RoleExample;
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface RoleMapper {

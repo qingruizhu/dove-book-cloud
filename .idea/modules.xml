@@ -3,11 +3,12 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/book-bgd/book-bgd.iml" filepath="$PROJECT_DIR$/book-bgd/book-bgd.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/book-sso-api/book-sso-api.iml" filepath="$PROJECT_DIR$/dove-book-sso/book-sso-api/book-sso-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/book-sso-provider/book-sso-provider.iml" filepath="$PROJECT_DIR$/dove-book-sso/book-sso-provider/book-sso-provider.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dove-book/dove-book.iml" filepath="$PROJECT_DIR$/dove-book/dove-book.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-provider/book-provider/book-provider.iml" filepath="$PROJECT_DIR$/dove-book-provider/book-provider/book-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-api/book-sso-api/book-sso-api.iml" filepath="$PROJECT_DIR$/dove-book-api/book-sso-api/book-sso-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-provider/book-sso-provider/book-sso-provider.iml" filepath="$PROJECT_DIR$/dove-book-provider/book-sso-provider/book-sso-provider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-api/dove-book-api.iml" filepath="$PROJECT_DIR$/dove-book-api/dove-book-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-book-cloud.iml" filepath="$PROJECT_DIR$/dove-book-cloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" filepath="$PROJECT_DIR$/dove-book-sso/dove-book-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dove-book-provider/dove-book-provider.iml" filepath="$PROJECT_DIR$/dove-book-provider/dove-book-provider.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common.iml" filepath="$PROJECT_DIR$/dove-common/dove-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-base/dove-common-base.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-base/dove-common-base.iml" />
       <module fileurl="file://$PROJECT_DIR$/dove-common/dove-common-core/dove-common-core.iml" filepath="$PROJECT_DIR$/dove-common/dove-common-core/dove-common-core.iml" />

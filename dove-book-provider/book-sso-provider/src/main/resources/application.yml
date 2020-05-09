@@ -1,0 +1,104 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: @pom.artifactId@
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+server:
+  port: 8081
+  servlet:
+    context-path: ""
+
+# mybatis
+mybatis:
+  mapper-locations:
+    - classpath:dao/*.xml
+    - classpath*:com/**/mapper/*.xml # ** 表示可多级目录
+
+# log
+logging:
+  level:
+    root: info
+    com.dove: debug
+
+#shiro:
+#  anon:
+#    path: /common/**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##JDBC基本配置
+#spring.datasource.druid.url=
+#spring.datasource.druid.username=
+#spring.datasource.druid.password=
+##如果不是mysql，换成对应的driver-class-name即可
+#spring.datasource.druid.driver-class-name=com.mysql.cj.jdbc.Driver
+#
+##连接池配置
+#spring.datasource.druid.initial-size=5
+#spring.datasource.druid.max-active=100
+#spring.datasource.druid.min-idle=5
+#spring.datasource.druid.max-wait=60000
+#spring.datasource.druid.pool-prepared-statements=true
+#spring.datasource.druid.max-pool-prepared-statement-per-connection-size=20
+#spring.datasource.druid.validation-query=SELECT 1 FROM DUAL
+#spring.datasource.druid.validation-query-timeout=60000
+#spring.datasource.druid.test-on-borrow=false
+#spring.datasource.druid.test-on-return=false
+#spring.datasource.druid.test-while-idle=true
+#spring.datasource.druid.time-between-eviction-runs-millis=60000
+#spring.datasource.druid.min-evictable-idle-time-millis=100000
+#
+####监控配置 begin###
+## WebStatFilter配置，说明请参考Druid Wiki，配置_配置WebStatFilter
+#spring.datasource.druid.web-stat-filter.enabled=true
+#spring.datasource.druid.web-stat-filter.url-pattern=/*
+#spring.datasource.druid.web-stat-filter.exclusions=*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*
+## StatViewServlet配置，说明请参考Druid Wiki，配置_StatViewServlet配置
+#spring.datasource.druid.stat-view-servlet.enabled= true
+#spring.datasource.druid.stat-view-servlet.url-pattern= /druid/*
+#spring.datasource.druid.stat-view-servlet.reset-enable= false
+#spring.datasource.druid.stat-view-servlet.login-username= admin
+#spring.datasource.druid.stat-view-servlet.login-password= admin
+#spring.datasource.druid.stat-view-servlet.allow= 127.0.0.1
+####监控配置 end###
+#
+## 配置StatFilter
+#spring.datasource.druid.filter.stat.db-type=mysql
+#spring.datasource.druid.filter.stat.log-slow-sql=true
+#spring.datasource.druid.filter.stat.slow-sql-millis=5000
+#
+## 配置WallFilter
+#spring.datasource.druid.filter.wall.enabled=true
+#spring.datasource.druid.filter.wall.db-type=mysql
+#spring.datasource.druid.filter.wall.config.delete-allow=false
+#spring.datasource.druid.filter.wall.config.drop-table-allow=false
+#

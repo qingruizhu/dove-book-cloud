@@ -1,6 +1,5 @@
 package com.dove.book.bgd.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class RolePermissionRela implements Serializable {
