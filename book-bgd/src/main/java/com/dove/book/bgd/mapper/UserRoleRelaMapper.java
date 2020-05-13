@@ -3,7 +3,6 @@ package com.dove.book.bgd.mapper;
 import com.dove.book.bgd.model.UserRoleRela;
 import com.dove.book.bgd.model.UserRoleRelaExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface UserRoleRelaMapper {

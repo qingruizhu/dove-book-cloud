@@ -3,7 +3,6 @@ package com.dove.book.bgd.mapper;
 import com.dove.book.bgd.model.Permission;
 import com.dove.book.bgd.model.PermissionExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface PermissionMapper {

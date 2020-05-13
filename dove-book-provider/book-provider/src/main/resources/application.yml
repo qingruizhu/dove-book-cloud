@@ -28,12 +28,12 @@ mybatis:
 logging:
   level:
     root: info
-    com.dove.book: debug
+    com.dove.book.provider.book: debug
 
 
-shiro:
-  anon:
-    path: /book/**
+#shiro:
+#  anon:
+#    path: /book/**
 
 
 
