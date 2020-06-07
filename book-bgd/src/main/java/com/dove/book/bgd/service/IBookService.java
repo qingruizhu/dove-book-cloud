@@ -10,4 +10,5 @@ import com.dove.common.base.service.IBaseService;
  * @Date: 2020/4/19 21:22
  */
 public interface IBookService<Q> extends IBaseService<Book>, IBaseQService<Book, Q> {
+    
 }

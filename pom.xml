@@ -43,6 +43,7 @@
         <spring-data-commons.version>2.2.6.RELEASE</spring-data-commons.version>
         <hutool-all.version>4.6.2</hutool-all.version>
         <commons-beanutils.version>1.9.4</commons-beanutils.version>
+        <jasypt-starter-version>2.1.0</jasypt-starter-version>
     </properties>
 
     <dependencies>
@@ -147,6 +148,12 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool-all.version}</version>
+            </dependency>
+            <!-- 数据库加密 -->
+            <dependency>
+                <groupId>com.github.ulisesbocchio</groupId>
+                <artifactId>jasypt-spring-boot-starter</artifactId>
+                <version>${jasypt-starter-version}</version>
             </dependency>
         </dependencies>
 

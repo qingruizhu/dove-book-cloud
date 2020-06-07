@@ -11,6 +11,7 @@
     <result column="rent_price" jdbcType="DECIMAL" property="rentPrice" />
     <result column="status" jdbcType="INTEGER" property="status" />
     <result column="star" jdbcType="BIGINT" property="star" />
+    <result column="category_id" jdbcType="BIGINT" property="categoryId" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -71,7 +72,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_id, name, book_desc, user_desc, price, rent_price, status, star
+    id, user_id, name, book_desc, user_desc, price, rent_price, status, star, category_id
   </sql>
   <select id="selectByExample" parameterType="com.dove.book.bgd.model.BookExample" resultMap="BaseResultMap">
     select
@@ -109,10 +110,12 @@
     </selectKey>
     insert into book (user_id, name, book_desc, 
       user_desc, price, rent_price, 
-      status, star)
+      status, star, category_id
+      )
     values (#{userId,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{bookDesc,jdbcType=VARCHAR}, 
       #{userDesc,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{rentPrice,jdbcType=DECIMAL}, 
-      #{status,jdbcType=INTEGER}, #{star,jdbcType=BIGINT})
+      #{status,jdbcType=INTEGER}, #{star,jdbcType=BIGINT}, #{categoryId,jdbcType=BIGINT}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.dove.book.bgd.model.Book">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -144,6 +147,9 @@
       <if test="star != null">
         star,
       </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="userId != null">
@@ -169,6 +175,9 @@
       </if>
       <if test="star != null">
         #{star,jdbcType=BIGINT},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=BIGINT},
       </if>
     </trim>
   </insert>
@@ -208,6 +217,9 @@
       <if test="record.star != null">
         star = #{record.star,jdbcType=BIGINT},
       </if>
+      <if test="record.categoryId != null">
+        category_id = #{record.categoryId,jdbcType=BIGINT},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -223,7 +235,8 @@
       price = #{record.price,jdbcType=DECIMAL},
       rent_price = #{record.rentPrice,jdbcType=DECIMAL},
       status = #{record.status,jdbcType=INTEGER},
-      star = #{record.star,jdbcType=BIGINT}
+      star = #{record.star,jdbcType=BIGINT},
+      category_id = #{record.categoryId,jdbcType=BIGINT}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -255,6 +268,9 @@
       <if test="star != null">
         star = #{star,jdbcType=BIGINT},
       </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=BIGINT},
+      </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
@@ -267,7 +283,8 @@
       price = #{price,jdbcType=DECIMAL},
       rent_price = #{rentPrice,jdbcType=DECIMAL},
       status = #{status,jdbcType=INTEGER},
-      star = #{star,jdbcType=BIGINT}
+      star = #{star,jdbcType=BIGINT},
+      category_id = #{categoryId,jdbcType=BIGINT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

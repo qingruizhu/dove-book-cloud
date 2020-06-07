@@ -30,6 +30,9 @@ public class Book implements Serializable {
     @ApiModelProperty(value = "热度")
     private Long star;
 
+    @ApiModelProperty(value = "种类Id")
+    private Long categoryId;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -104,6 +107,14 @@ public class Book implements Serializable {
         this.star = star;
     }
 
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -119,6 +130,7 @@ public class Book implements Serializable {
         sb.append(", rentPrice=").append(rentPrice);
         sb.append(", status=").append(status);
         sb.append(", star=").append(star);
+        sb.append(", categoryId=").append(categoryId);
         sb.append(", serialVersionUID=").append(serialVersionUID);
         sb.append("]");
         return sb.toString();

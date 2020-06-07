@@ -45,6 +45,9 @@ public class BookDto implements Serializable {
     @ApiModelProperty(value = "热度")
     private Long star;
 
+    @ApiModelProperty(value = "种类Id")
+    private Long categoryId;
+
     private static final long serialVersionUID = 1L;
 
     public Long getId() {
@@ -135,23 +138,11 @@ public class BookDto implements Serializable {
         this.pageSize = pageSize;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", userId=").append(userId);
-        sb.append(", name=").append(name);
-        sb.append(", desc=").append(desc);
-        sb.append(", userDesc=").append(userDesc);
-        sb.append(", price=").append(price);
-        sb.append(", rentPrice=").append(rentPrice);
-        sb.append(", status=").append(status);
-        sb.append(", star=").append(star);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
+    public Long getCategoryId() {
+        return categoryId;
+    }
+
+    public void setCategoryId(Long categoryId) {
+        this.categoryId = categoryId;
     }
 }

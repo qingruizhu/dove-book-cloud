@@ -15,17 +15,17 @@
     <description>book provider for provider</description>
 
     <dependencies>
-        <dependency>
-            <groupId>com.dove.book.api</groupId>
-            <artifactId>book-sso-api</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <!--        <dependency>-->
-        <!--            <groupId>com.dove.book</groupId>-->
-        <!--            <artifactId>book-bgd</artifactId>-->
+        <!--            <groupId>com.dove.book.api</groupId>-->
+        <!--            <artifactId>book-sso-api</artifactId>-->
         <!--            <version>0.0.1-SNAPSHOT</version>-->
         <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.dove.book</groupId>
+            <artifactId>book-bgd</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
 
     </dependencies>
 

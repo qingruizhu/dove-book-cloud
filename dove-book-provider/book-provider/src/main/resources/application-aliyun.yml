@@ -3,14 +3,10 @@ spring:
     # &serverTimezone=Asia/Shanghai 解决插入数据库时间和 new date() 时间不一致
     # &useSSL=false 批量修改设置
     url: jdbc:mysql://123.57.102.27:3306/zqr_dove_book?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
-    username: ENC(1nynHNrUIUjgwBc6lwTj1w==)
-    password: ENC(wkmeFxw84FSxaz7CeXCKeQ==)
+    username: ENC(N8vUZbVqpi6xOcivj2g4AA==)
+    password: ENC(xoS6beh9BUKo5dsTaRFJKQ==)
 #  redis:
 #    host: localhost
 
 path:
-  log: /Users/qingruizhu/Desktop/logs/${spring.application.name}
-
-#file:
-#  path: /Users/qingruizhu/Desktop/ppm/files
-
+  log: /var/logs/${spring.application.name}

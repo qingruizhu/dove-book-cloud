@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  */
 @Configuration
 @EnableTransactionManagement
-@MapperScan({"com.dove.book.bgd.mapper", "com.dove.book.provider.boo.dao"})
+@MapperScan({"com.dove.book.bgd.mapper", "com.dove.book.provider.book.dao"})
 public class MyBatisConfig {
 
 }

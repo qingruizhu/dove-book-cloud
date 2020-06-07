@@ -1,5 +1,49 @@
+#ppm:
+#  nacos:
+#    address: localhost:8848
+#    namespce: 09f1d676-7eec-4bb7-aecc-8dc893e37b4d
+
 spring:
-  cloud:
-    nacos:
-      discovery:
-        server-addr: 123.57.102.27:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    #druid
+    druid:
+      initial-size: 5
+      max-active: 100
+      min-idle: 5
+      max-wait: 60000
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      validation-query: SELECT 1 FROM DUAL
+      validation-query-timeout: 60000
+      test-on-borrow: false
+      test-on-return: false
+      test-while-idle: true
+      min-evictable-idle-time-millis: 100000
+      time-between-eviction-runs-millis: 60000 #默认60s
+      #      connection-error-retry-attempts: 3 #超时重试次数
+      break-after-acquire-failure: true #解决druid获取链接失败后刷日志问题
+      fail-fast: true #解决druid获取链接失败后线程卡死问题
+#  cloud:
+#    nacos:
+#      discovery:
+#        server-addr: ${ppm.nacos.address}
+#        namespace: ${ppm.nacos.namespce}
+#      config:
+#        server-addr: ${ppm.nacos.address}
+#        file-extension: yaml
+#        group: OTHER_GROUP
+#        namespace: ${ppm.nacos.namespce}
+
+#shiro:
+#  anon:
+#    path: /common/**,/file/**
+
+#数据库密码加密
+jasypt:
+  encryptor:
+    password: xiaotuzhinicaicaikan
+
+#feign:
+#  hystrix:
+#    enabled: true

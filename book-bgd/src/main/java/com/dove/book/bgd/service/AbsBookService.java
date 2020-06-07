@@ -25,7 +25,7 @@ public abstract class AbsBookService<Q> implements IBookService<Q> {
         BookExample example = new BookExample();
         BookExample.Criteria criteria = example.createCriteria();
         if (null != book.getId()) criteria.andIdEqualTo(book.getId());
-        if (StringUtils.isNotEmpty(book.getName())) criteria.andNameEqualTo(book.getName());
+        if (StringUtils.isNotEmpty(book.getName())) criteria.andNameLike(book.getName());
         if (null != book.getUserId()) criteria.andUserIdEqualTo(book.getUserId());
         if (null != book.getPrice()) criteria.andPriceEqualTo(book.getPrice());
         if (null != book.getRentPrice()) criteria.andRentPriceEqualTo(book.getRentPrice());
